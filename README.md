@@ -6,6 +6,9 @@
 
 本專案是一個基於 Web 的互動式概念驗證 (POC) 工具，旨在展示與測試 **Cisco Foundation-Sec-8B** 模型的強大能力。透過 Gradio 建立的使用者介面，資安分析師與開發人員可以輕鬆地與該模型互動，進行 CVE 漏洞分析、修補建議生成及威脅情資解讀。
 
+### 參考連結 : 
+* https://huggingface.co/fdtn-ai/Foundation-Sec-8B
+
 此程式碼設計用於支援 GPU 加速環境（如 Kaggle Notebook 或本地 CUDA 環境），並利用 4-bit 量化技術優化推論效率。
 
 ## 🤖 關於模型 (About the Model)
