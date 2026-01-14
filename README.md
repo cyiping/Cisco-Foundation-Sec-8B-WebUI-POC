@@ -48,14 +48,17 @@
 pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 ```
 
-
-
 ### 2. 執行程式
-直接執行 Python 腳本即可啟動服務：
+本專案提供兩個版本的腳本，您可以根據需求選擇執行：
 
-```bash
-python app.py
-```
+*   **執行基礎版：**
+    ```bash
+    python app1.py
+    ```
+*   **執行優化版 (推薦)：**
+    ```bash
+    python app2.py
+    ```
 (註：若在 Kaggle 或 Colab 環境中，請直接執行 Notebook cell)
 
 ### 3. 操作介面
@@ -73,17 +76,31 @@ python app.py
 | Temperature | 0.4 | 0.1 - 0.4 | 值越低，回應越固定且精確；值越高，創意性越高。資安任務建議低溫。 |
 | Top-p | 0.9 | 0.9 | 核心採樣參數，保持預設即可獲得穩定輸出。 |
 
+## 📄 腳本說明與差異 (Script Descriptions & Differences)
+
+本專案提供兩個版本的執行腳本，分別針對不同的使用情境進行優化：
+
+| 檔案名稱 | 版本說明 | 核心特點 | 適用場景 |
+| :--- | :--- | :--- | :--- |
+| **app1.py** | 基礎版 (Basic) | 簡單直覺的 Pipeline 實作，提供基礎 Gradio 介面。 | 快速測試模型基礎能力、高規格 GPU 環境。 |
+| **app2.py** | 優化版 (Anti-Loop Fix) | 加入 **System Prompt**、**重複懲罰 (Repetition Penalty)** 及 **T4 GPU 量化優化**。 | 解決模型重複跳針問題、資源受限環境 (如 Kaggle T4)、需要更精準資安專家口吻時。 |
+
+#### `app2.py` 的主要改進：
+*   **防止重複跳針 (Anti-Loop)**：透過 `repetition_penalty=1.15` 參數，有效避免模型在生成長文本時陷入無限循環。
+*   **角色設定 (System Prompt)**：預設加入 "You are a senior cyber security Engineer" 的指令，讓回應更具專業資安分析風格。
+*   **硬體優化**：針對 Kaggle T4 GPU 進行 `BitsAndBytesConfig` 細節調整（如 `nf4` 量化與雙重量化），確保在 16GB VRAM 下穩定運行。
+*   **Tokenizer 修正**：自動處理 Llama 架構常見的 Padding Token 問題，提升生成穩定性。
+
 ## 📂 檔案結構 (File Structure)
 
 ```plaintext
-├── app.py                # 主要執行程式碼
+├── app1.py               # 基礎版執行程式碼
+├── app2.py               # 優化版執行程式碼 (含 Anti-Loop 修正)
 ├── security_log.csv      # (自動生成) 互動紀錄檔
 └── README.md             # 說明文件
 ```
 
 ![a](image-1.png)
-
-
 
 ## ⚠️ 免責聲明 (Disclaimer)
 本專案為 Proof of Concept (POC) 性質，旨在展示 Cisco Foundation-Sec-8B 模型之功能。生成的資安建議僅供參考，實際部署補丁或執行資安決策前，請務必參照官方供應商 (Vendor) 的正式公告與測試驗證。
