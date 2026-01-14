@@ -30,6 +30,21 @@ Foundation AI 是 Cisco Security 內部的先鋒團隊，由人工智慧與網�
 
 ---
 
+## 如何在 Kaggle 上使用這些筆記本 (How to use on Kaggle)
+
+如果您想在 Kaggle 的免費 GPU 環境中執行本食譜中的 Jupyter Notebook (`.ipynb`)，請按照以下步驟操作：
+
+1.  **下載檔案**：從本儲存庫下載您感興趣的 `.ipynb` 檔案到您的電腦。
+2.  **建立 Notebook**：登入 [Kaggle](https://www.kaggle.com/)，點擊左側選單的 **"Create"** -> **"New Notebook"**。
+3.  **匯入檔案**：在 Notebook 編輯器中，點擊上方選單的 **"File"** -> **"Import Notebook"**。
+4.  **上傳**：選擇 **"Upload"** 並選取您下載的 `.ipynb` 檔案，然後點擊 **"Import"**。
+5.  **環境設定**：
+    *   **GPU 加速**：在右側面板的 **"Settings"** -> **"Accelerator"** 選擇 **"GPU T4 x2"**。
+    *   **開啟網路**：確保 **"Internet"** 選項已切換為 **"On"**。
+    *   **設定 Token**：若模型需要權限，請參考 [根目錄 README](../README.md#🔑-如何在-kaggle-設定-hf_token-kaggle-secrets) 設定 `HF_TOKEN`。
+
+---
+
 ## 導覽本食譜
 
 本食譜分為以下四大類別。請參閱各章節以獲取詳細指引：
