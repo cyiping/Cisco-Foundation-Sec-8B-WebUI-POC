@@ -38,7 +38,12 @@ from huggingface_hub import login
 # ==========================================
 # 步驟 2: 模型與登入 (Kaggle Secrets 支援)
 # ==========================================
-# 建議: 在 Kaggle 頂部選單 'Add-ons' -> 'Secrets' -> Add 'HF_TOKEN'
+# 如何在 Kaggle 設定 HF_TOKEN:
+# 1. 在 Kaggle Notebook 頂部選單點擊 'Add-ons' -> 'Secrets'。
+# 2. 點擊 'Add a new secret'。
+# 3. Label 輸入 'HF_TOKEN'，Value 輸入您的 Hugging Face Access Token。
+# 4. 勾選該 Secret 旁邊的 'Attached' 複選框以啟用它。
+# 5. 確保 Notebook 右側面板的 'Internet' 選項已開啟 (On)。
 try:
     from kaggle_secrets import UserSecretsClient
     user_secrets = UserSecretsClient()

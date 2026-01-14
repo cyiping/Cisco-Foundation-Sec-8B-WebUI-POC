@@ -114,6 +114,16 @@ pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 *   **結構化輸出 (Completion Style)**：採用 `[Security Analysis Report]` 模板引導模型，生成包含 Topic、Date、Analyst 等欄位的格式化報告。
 *   **路徑與存取優化**：自動將 Log 儲存於 Kaggle 可寫入路徑 (`/kaggle/working`)，並預設開啟 `share=True` 以產生外部存取連結。
 
+#### 🔑 如何在 Kaggle 設定 HF_TOKEN (Kaggle Secrets)
+為了讓 `app3.py` 能自動登入 Hugging Face 並下載模型，請按照以下步驟操作：
+1.  **取得 Token**：前往 [Hugging Face Settings](https://huggingface.co/settings/tokens) 建立一個具有 `Read` 權限的 Access Token。
+2.  **開啟 Secrets 面板**：在 Kaggle Notebook 編輯器頂部選單，點擊 **Add-ons** -> **Secrets**。
+3.  **新增 Secret**：
+    *   **Label**: 輸入 `HF_TOKEN`。
+    *   **Value**: 貼上您的 Hugging Face Access Token。
+4.  **連結至 Notebook**：點擊 **Add secret** 後，確保該 Secret 旁邊的 **Attached** 勾選框已勾選。
+5.  **開啟網路**：確保 Notebook 右側面板 (Settings) 中的 **Internet** 選項已切換為 **On**。
+
 ## 📂 檔案結構 (File Structure)
 
 ```plaintext
