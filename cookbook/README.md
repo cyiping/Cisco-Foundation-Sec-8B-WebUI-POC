@@ -1,36 +1,99 @@
-# Welcome to the Cisco Foundation AI Cookbook
-This cookbook repository helps you get started with using models developed by Cisco Foundation AI team. <br>
-It will cover many security related use cases, deployment options, practical adaption approaches like finetuning and so forth.
-For a high-level overview of the cookbook, please refer to our [blog post of introduction to the cookbook](https://www.linkedin.com/pulse/foundation-sec-8b-language-model-cybersecurity-introduction-cookbook-l9tsc).
+# Cisco Foundation AI Cookbook (食譜)
 
-## What is Foundation AI?
-Foundation AI is a pioneering team within Cisco Security, created by leading experts in artificial intelligence and cybersecurity who joined Cisco through the acquisition of Robust Intelligence. Our mission is to push the boundaries of what's possible at the intersection of AI and security.
+歡迎來到 Cisco Foundation AI Cookbook！本儲存庫旨在協助您快速上手並有效利用 Cisco Foundation AI 團隊開發的各類模型。
 
-We develop cutting-edge open source models and tools designed to elevate the future of cybersecurity. From securing today's digital infrastructure to anticipating tomorrow's AI-driven challenges, Foundation AI is shaping a more secure, intelligent future.
-- [Foundation AI's Website](https://fdtn.ai/): we continuously publish blogs with the latest updates on our products and research.
-- [Hugging Face](https://huggingface.co/fdtn-ai): download our models from the platform.
+本食譜涵蓋了眾多與網路安全相關的使用案例、部署選項，以及如微調 (finetuning) 等實用的模型適配方法。
 
-Follow our [LinkedIn page](https://www.linkedin.com/company/fdtn/) for updates.
+如需了解本食譜的高層級概覽，請參閱我們的 [部落格介紹文章](https://www.linkedin.com/pulse/foundation-sec-8b-language-model-cybersecurity-introduction-cookbook-l9tsc)。
 
-**Interested in preview-mode models? Request early access using the [form](https://fdtn.ai/early-access)!**
+---
 
-## Demo Video
-[![](https://img.youtube.com/vi/ei5ND9bwmRo/0.jpg)](https://www.youtube.com/watch?v=ei5ND9bwmRo) <br>
-Want to run models without writing codes and on your laptop? Another demo video shows how to use our model on a UI. Watch it [here](./1_quickstarts).
+## 什麼是 Foundation AI？
 
-## Navigating the Cookbook
-This cookbook is organized into the following four main categories. Please refer to each section for detailed guidance.
-1. [Quickstarts](./1_quickstarts): Guides to quickly download and use models for introductory topics.
-2. [Examples](./2_examples): Several use cases of cybersecurity demonstrating how to fully utilize our models.
-3. [Adoptions](./3_adoptions): Notebooks and scripts to use the models in production.
-    - [Finetunings](./3_adoptions/finetuning): Finetuning pipelines for the base model for specific tasks.
-    - [Quantized models](./3_adoptions/quantization): Quantized models for light-weight inference.
-    - [Deployments](./3_adoptions/deployment): Sample deployments scripts for several platforms.
-    - [Integrations](./3_adoptions/integrations): Sample scripts for integrating FoundationSec models with services and workflows
+Foundation AI 是 Cisco Security 內部的先鋒團隊，由人工智慧與網路安全領域的頂尖專家組成（這些專家隨 Robust Intelligence 被 Cisco 收購而加入）。我們的使命是挑戰 AI 與安全交匯點的極限。
 
-4. [Documents](./4_documents): Useful documents and links.
-    - [FAQ](./4_documents/FAQ.md): Frequently Asked Questions.
-    - [Reference](./4_documents/Reference.md): Links and resources, including Cisco blogs, technical model reports, and more.
+我們開發尖端的開源模型與工具，旨在提升網路安全的未來。從保護當前的數位基礎設施，到預測未來的 AI 驅動挑戰，Foundation AI 正在塑造一個更安全、更智慧的未來。
 
-## Contributing to the Cookbook
-We appreciate your contributions! If you have questions, suggestions (including missing use cases), or notice any issues, please open an issue, start a discussion, or submit a pull request.
+- **[Foundation AI 官方網站](https://fdtn.ai/)**：我們持續發佈關於產品與研究的最新部落格。
+- **[Hugging Face](https://huggingface.co/fdtn-ai)**：從此平台下載我們的模型。
+- **[LinkedIn 專頁](https://www.linkedin.com/company/fdtn/)**：追蹤我們的最新動態。
+
+**對預覽版模型感興趣嗎？請透過 [此表單](https://fdtn.ai/early-access) 申請早期存取！**
+
+---
+
+## 演示影片
+
+[![](https://img.youtube.com/vi/ei5ND9bwmRo/0.jpg)](https://www.youtube.com/watch?v=ei5ND9bwmRo)
+
+想在不寫程式的情況下在筆電上運行模型嗎？另一個演示影片展示了如何在 UI 上使用我們的模型。點擊 [這裡](https://github.com/cisco-foundation-ai/cookbook/tree/main/1_quickstarts) 觀看。
+
+---
+
+## 如何在 Kaggle 上使用這些筆記本 (How to use on Kaggle)
+
+如果您想在 Kaggle 的免費 GPU 環境中執行本食譜中的 Jupyter Notebook (`.ipynb`)，請按照以下步驟操作：
+
+1.  **下載檔案**：從本儲存庫下載您感興趣的 `.ipynb` 檔案到您的電腦。
+2.  **建立 Notebook**：登入 [Kaggle](https://www.kaggle.com/)，點擊左側選單的 **"Create"** -> **"New Notebook"**。
+3.  **匯入檔案**：在 Notebook 編輯器中，點擊上方選單的 **"File"** -> **"Import Notebook"**。
+4.  **上傳**：選擇 **"Upload"** 並選取您下載的 `.ipynb` 檔案，然後點擊 **"Import"**。
+5.  **環境設定**：
+    *   **GPU 加速**：在右側面板的 **"Settings"** -> **"Accelerator"** 選擇 **"GPU T4 x2"**。
+    *   **開啟網路**：確保 **"Internet"** 選項已切換為 **"On"**。
+    *   **設定 Token**：若模型需要權限，請參考 [根目錄 README](../README.md#🔑-如何在-kaggle-設定-hf_token-kaggle-secrets) 設定 `HF_TOKEN`。
+
+---
+
+## 導覽本食譜
+
+本食譜分為以下四大類別。請參閱各章節以獲取詳細指引：
+
+### 1. [快速入門 (Quickstarts)](./1_quickstarts)
+提供快速下載並使用模型進行入門主題的指南。
+- **支援模型**：包含基礎模型 (Foundation-Sec-8B)、指令微調模型 (Instruct model) 以及預覽版的推理模型 (Reasoning model)。
+- **硬體需求**：模型可以在單張 Nvidia A100 GPU 上運行。
+- **LM Studio 支援**：想在不寫程式的情況下在筆電上運行模型嗎？[LM Studio](https://lmstudio.ai/) 是一個絕佳的工具。觀看我們的 [演示影片](https://www.youtube.com/watch?v=txIbkBX50MQ)。
+
+### 2. [使用案例範例 (Examples)](./2_examples)
+展示如何充分利用不同類型的模型來處理多種網路安全使用案例：
+
+#### 基礎模型 (Base Model) 案例：
+- **零樣本分類 (Zero-Shot Classification)**：利用困惑度評分 (Perplexity scoring) 進行分類。
+- **日誌中的大海撈針 (Needle in the Logstack)**。
+
+#### 指令微調模型 (Instruct Model) 案例：
+- **YARA 模式生成 (YARA patterns)**
+- **事件摘要 (Incident Summarization)**
+- **MITRE 映射 (MITRE Mapping)**
+- **建置環境安全 (Build Environment Security)**
+
+#### 推理模型 (Reasoning Model) 案例：
+- **端到端事件調查 (Incident Investigation e2e)**
+- **OSINT 偵察與報告 (OSINT reporting)**
+- **紅隊規劃 (Redteam Planning)**
+- **漏洞利用生成 (Exploit Generation)**
+- **根因分析 (Root Cause Analysis)**
+- **警報優先級排序 (Alert Prioritization)**
+- **配置評估 (Configuration Assessment)**
+
+> **注意**：推理模型目前處於預覽模式，需透過 [此表單](https://fdtn.ai/early-access) 申請早期存取。
+
+### 3. [模型採用與適配 (Adoptions)](./3_adoptions)
+用於生產環境的模型使用筆記本與腳本。
+- **[微調 (Finetuning)](./3_adoptions/finetuning)**：針對特定任務微調基礎模型的流程。
+- **[量化模型 (Quantization)](./3_adoptions/quantization)**：用於輕量化推理的量化模型（如 GGUF 格式）。
+- **[部署 (Deployments)](./3_adoptions/deployment)**：適用於多個平台（如 vLLM, TGI 等）的部署腳本範例。
+- **[整合 (Integrations)](./3_adoptions/integrations)**：將 FoundationSec 模型整合至服務與工作流的腳本範例。
+
+### 4. [文件與資源 (Documents)](./4_documents)
+實用的文件與連結。
+- **[常見問題 (FAQ)](./4_documents/FAQ.md)**：針對常見疑問的解答。
+- **[參考資料 (Reference)](./4_documents/Reference.md)**：包含 Cisco 部落格、技術模型報告等資源連結。
+- **[模型作為惡意軟體 (Models as Malware)](./4_documents/models_as_malware)**：探討 AI 模型安全性的相關研究。
+
+---
+
+## 貢獻指南
+
+我們非常歡迎您的貢獻！如果您有任何問題、建議（包括缺失的使用案例）或發現任何問題，請開啟 Issue、發起討論或提交 Pull Request。
