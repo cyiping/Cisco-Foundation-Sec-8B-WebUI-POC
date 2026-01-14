@@ -16,21 +16,21 @@ Follow our [LinkedIn page](https://www.linkedin.com/company/fdtn/) for updates.
 
 ## Demo Video
 [![](https://img.youtube.com/vi/ei5ND9bwmRo/0.jpg)](https://www.youtube.com/watch?v=ei5ND9bwmRo) <br>
-Want to run models without writing codes and on your laptop? Another demo video shows how to use our model on a UI. Watch it [here](https://github.com/cisco-foundation-ai/cookbook/tree/main/1_quickstarts).
+Want to run models without writing codes and on your laptop? Another demo video shows how to use our model on a UI. Watch it [here](./1_quickstarts).
 
 ## Navigating the Cookbook
 This cookbook is organized into the following four main categories. Please refer to each section for detailed guidance.
-1. [Quickstarts](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/1_quickstarts): Guides to quickly download and use models for introductory topics.
-2. [Examples](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/2_examples): Several use cases of cybersecurity demonstrating how to fully utilize our models.
-3. [Adoptions](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/3_adoptions): Notebooks and scripts to use the models in production.
-    - [Finetunings](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/3_adoptions/finetuning): Finetuning pipelines for the base model for specific tasks.
-    - [Quantized models](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/3_adoptions/quantization): Quantized models for light-weight inference.
-    - [Deployments](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/3_adoptions/deployment): Sample deployments scripts for several platforms.
-    - [Integrations](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/3_adoptions/integrations): Sample scripts for integrating FoundationSec models with services and workflows
+1. [Quickstarts](./1_quickstarts): Guides to quickly download and use models for introductory topics.
+2. [Examples](./2_examples): Several use cases of cybersecurity demonstrating how to fully utilize our models.
+3. [Adoptions](./3_adoptions): Notebooks and scripts to use the models in production.
+    - [Finetunings](./3_adoptions/finetuning): Finetuning pipelines for the base model for specific tasks.
+    - [Quantized models](./3_adoptions/quantization): Quantized models for light-weight inference.
+    - [Deployments](./3_adoptions/deployment): Sample deployments scripts for several platforms.
+    - [Integrations](./3_adoptions/integrations): Sample scripts for integrating FoundationSec models with services and workflows
 
-4. [Documents](https://github.com/RobustIntelligence/foundation-ai-cookbook/tree/main/4_documents): Useful documents and links.
-    - [FAQ](https://github.com/RobustIntelligence/foundation-ai-cookbook/blob/main/4_documents/FAQ.md): Frequently Asked Questions.
-    - [Reference](https://github.com/RobustIntelligence/foundation-ai-cookbook/blob/main/4_documents/Reference.md): Links and resources, including Cisco blogs, technical model reports, and more.
+4. [Documents](./4_documents): Useful documents and links.
+    - [FAQ](./4_documents/FAQ.md): Frequently Asked Questions.
+    - [Reference](./4_documents/Reference.md): Links and resources, including Cisco blogs, technical model reports, and more.
 
 ## Contributing to the Cookbook
 We appreciate your contributions! If you have questions, suggestions (including missing use cases), or notice any issues, please open an issue, start a discussion, or submit a pull request.
