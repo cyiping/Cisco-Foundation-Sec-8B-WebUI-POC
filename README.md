@@ -23,6 +23,18 @@
     * **工程賦能**：驗證配置檔案、評估合規要求。
 * **效能**：在 CTIBench 等基準測試中，表現優於 GPT-4 及 Llama 3.1 70B。
 
+## 📚 Cisco Foundation AI Cookbook
+
+本專案內含 **Cisco Foundation AI Cookbook**，這是一個引導使用者上手 Cisco Foundation AI 模型的實用指南。它涵蓋了多種資安相關的使用案例、佈署選項以及微調 (Finetuning) 等實務操作。
+
+### 主要內容：
+1.  **[Quickstarts](./cookbook/1_quickstarts)**：快速下載並開始使用模型的入門指南。
+2.  **[Examples](./cookbook/2_examples)**：多個資安使用案例，展示如何充分利用模型能力。
+3.  **[Adoptions](./cookbook/3_adoptions)**：包含微調 (Finetuning)、模型量化 (Quantization) 及佈署 (Deployment) 腳本。
+4.  **[Documents](./cookbook/4_documents)**：包含常見問題 (FAQ) 與參考資源。
+
+更多詳細資訊請參考 [cookbook 目錄](./cookbook)。
+
 ## 🛠️ 功能特點 (Features)
 
 * **直覺式 Web 介面**：使用 Gradio 構建，無需編寫程式碼即可進行問答。
@@ -96,6 +108,7 @@ pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 ```plaintext
 ├── app1.py               # 基礎版執行程式碼
 ├── app2.py               # 優化版執行程式碼 (含 Anti-Loop 修正)
+├── cookbook/             # Cisco Foundation AI Cookbook (範例與指南)
 ├── security_log.csv      # (自動生成) 互動紀錄檔
 └── README.md             # 說明文件
 ```
