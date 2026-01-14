@@ -61,7 +61,7 @@ pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 ```
 
 ### 2. 執行程式
-本專案提供兩個版本的腳本，您可以根據需求選擇執行：
+本專案提供多個版本的腳本，您可以根據需求選擇執行：
 
 *   **執行基礎版：**
     ```bash
@@ -70,6 +70,10 @@ pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 *   **執行優化版 (推薦)：**
     ```bash
     python app2.py
+    ```
+*   **執行 Kaggle 專用版：**
+    ```bash
+    python app3.py
     ```
 (註：若在 Kaggle 或 Colab 環境中，請直接執行 Notebook cell)
 
@@ -90,12 +94,13 @@ pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 
 ## 📄 腳本說明與差異 (Script Descriptions & Differences)
 
-本專案提供兩個版本的執行腳本，分別針對不同的使用情境進行優化：
+本專案提供多個版本的執行腳本，分別針對不同的使用情境進行優化：
 
 | 檔案名稱 | 版本說明 | 核心特點 | 適用場景 |
 | :--- | :--- | :--- | :--- |
 | **app1.py** | 基礎版 (Basic) | 簡單直覺的 Pipeline 實作，提供基礎 Gradio 介面。 | 快速測試模型基礎能力、高規格 GPU 環境。 |
 | **app2.py** | 優化版 (Anti-Loop Fix) | 加入 **System Prompt**、**重複懲罰 (Repetition Penalty)** 及 **T4 GPU 量化優化**。 | 解決模型重複跳針問題、資源受限環境 (如 Kaggle T4)、需要更精準資安專家口吻時。 |
+| **app3.py** | Kaggle 專用版 (Kaggle T4) | **自動安裝環境**、**Kaggle Secrets 支援**、**結構化報告模板**。 | 在 Kaggle Notebook 環境中快速佈署、需要格式化資安報告時。 |
 
 #### `app2.py` 的主要改進：
 *   **防止重複跳針 (Anti-Loop)**：透過 `repetition_penalty=1.15` 參數，有效避免模型在生成長文本時陷入無限循環。
@@ -103,11 +108,18 @@ pip install sqlalchemy>=1.4 transformers accelerate bitsandbytes gradio
 *   **硬體優化**：針對 Kaggle T4 GPU 進行 `BitsAndBytesConfig` 細節調整（如 `nf4` 量化與雙重量化），確保在 16GB VRAM 下穩定運行。
 *   **Tokenizer 修正**：自動處理 Llama 架構常見的 Padding Token 問題，提升生成穩定性。
 
+#### `app3.py` 的主要改進：
+*   **自動化環境配置**：內建 `install_dependencies()` 邏輯，自動檢查並安裝必要套件，實現開箱即用。
+*   **Kaggle Secrets 整合**：支援從 Kaggle Secrets 自動讀取 `HF_TOKEN`，無需在程式碼中硬編碼金鑰。
+*   **結構化輸出 (Completion Style)**：採用 `[Security Analysis Report]` 模板引導模型，生成包含 Topic、Date、Analyst 等欄位的格式化報告。
+*   **路徑與存取優化**：自動將 Log 儲存於 Kaggle 可寫入路徑 (`/kaggle/working`)，並預設開啟 `share=True` 以產生外部存取連結。
+
 ## 📂 檔案結構 (File Structure)
 
 ```plaintext
 ├── app1.py               # 基礎版執行程式碼
 ├── app2.py               # 優化版執行程式碼 (含 Anti-Loop 修正)
+├── app3.py               # Kaggle 專用版 (含自動安裝與 Secrets 支援)
 ├── cookbook/             # Cisco Foundation AI Cookbook (範例與指南)
 ├── security_log.csv      # (自動生成) 互動紀錄檔
 └── README.md             # 說明文件
